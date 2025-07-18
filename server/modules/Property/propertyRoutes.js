@@ -23,10 +23,10 @@ router.get('/similar/:id', propertyController.getSimilarProperties);
 
 router.post(
     '/addProperty',
-    // protect,
+    protect,
     // انا كتبت اليوزر دي عشان علي حسب الفرونت عتدي بشوف لو كان يوزر بخليه بيندنج لو ادمن برفعها علي طول
     // طبعا يا باشا اعمل اللي انت عاوزه برضو :)
-    // authorize('user','admin', 'agent'),
+    authorize('user','admin', 'agent'),
     uploader.array('media', 20),
     validation(PropertyValidator),
     propertyController.addProperty
